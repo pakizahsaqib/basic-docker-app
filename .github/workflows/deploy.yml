@@ -1,0 +1,29 @@
+name: Deploy to EC2 # Name of the workflow
+
+on:
+  push:
+    branches: [ "main" ] # Triggers this workflow only when code is pushed to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # The type of runner (virtual machine) to use for this job
+
+    steps:
+      - name: Checkout repository # Standard step to get the code from your repo
+        uses: actions/checkout@v4
+
+      - name: Deploy to EC2 # This step uses a third-party action to connect via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          # SSH connection details using the secrets configured
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+
+          # The command to execute on the EC2 instance
+          # Navigate to the app directory and execute the script created.
+          script: |
+            cd /home/ubuntu/basic-docker-app
+            ./deploy.sh
+
+            
