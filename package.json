@@ -1,7 +1,7 @@
 {
   "name": "docker-app",
   "version": "1.0.0",
-  "description": "",
+ "description": "Simple Node app",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0",
-    "pg": "^8.16.3"
+    "express": "^5.1.0"
   }
 }

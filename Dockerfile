@@ -18,3 +18,4 @@ EXPOSE 3000
 
 # Step 7: Set the default command to run the app
 CMD ["npm", "start"]
+

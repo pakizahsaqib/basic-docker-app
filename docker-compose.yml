@@ -1,20 +1,38 @@
-services:
-  app:
-    build: .
-    ports:
-      - 3000:3000
-    depends_on:
-      - db
-  db:
-    image: postgres:latest
-    restart: always
-    ports:
-      - 5432:5432
-    environment:
-      POSTGRES_USER: app_user
-      POSTGRES_PASSWORD: app_password
-      POSTGRES_DB: app_db
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-volumes:
-  postgres_data:  
+# # Use Docker Compose to define and run multi-container Docker applications
+
+# version: '3.8'
+
+# #Each service will run in its own container
+# services:
+#   app:
+#     # Use the Dockerfile in the current directory to build the image
+#     build: .
+#     # Map port 3000 on the host to port 3000 in the container host:container
+#      # app: host port 3000 -> container port 3000
+#     ports:
+#       - 3000:3000
+#      # Ensure the database service is started before the app service
+#     depends_on:
+#       - db
+     
+#   db:
+#     image: postgres:latest
+#     restart: always
+#     ports:
+#       - 5432:5432
+#     environment:
+#       POSTGRES_USER: app_user
+#       POSTGRES_PASSWORD: app_password
+#       POSTGRES_DB: app_db
+#     # Persist database data on the host machine beyond the container lifecycle
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+# volumes:
+#   postgres_data:  
+
+
+#     # # Restart the container automatically if it stops
+#     # restart: always 
+#     # restat:y: unless-stopped
+#     # restart: on-failure
+#     # restart: none
