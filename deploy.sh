@@ -15,7 +15,7 @@ git pull origin main
 
 # Rebuild the Docker image
 # This step takes the new code and creates a fresh image blueprint.
-echo "Rebuilding Docker image..."
+echo "Rebuilding Docker image...."
 docker compose build
 
 # Start the new container(s) in detached mode
